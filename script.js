@@ -28,7 +28,21 @@ async function loginUser(email, password) {
         console.log('User logged in:', user);
     }
 }
+// Add the form handling functions directly after the sign-up and login functions
 
+function signUpForm(event) {
+    event.preventDefault();
+    const email = document.getElementById('signup-email').value;
+    const password = document.getElementById('signup-password').value;
+    signUpUser(email, password);
+}
+
+function loginForm(event) {
+    event.preventDefault();
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+    loginUser(email, password);
+}
 // User Logout
 async function logoutUser() {
     const { error } = await supabase.auth.signOut();
